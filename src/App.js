@@ -8,12 +8,7 @@ import Paho from "paho-mqtt";
 
 const App = () => {
   const chartRef = useRef(null);
-  const client = new Paho.Client(
-    "broker.hivemq.com",
-    Number(8000),
-    "dsaıadsıjdsajıdsaoıjsdadsa"
-  );
-
+  const client = new Paho.Client("broker.hivemq.com", Number(8000), "wss");
   client.onMessageArrived = onMessageArrived;
   client.onConnectionLost = onConnectionLost;
   client.connect({ onSuccess: onConnect });
