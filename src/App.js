@@ -7,6 +7,11 @@ import { Line } from "react-chartjs-2";
 import Paho from "paho-mqtt";
 
 const App = () => {
+  const ssl =
+    window.location.protocol === "https:"
+      ? (window.location.protocol = "http")
+      : null;
+  console.log(ssl);
   const chartRef = useRef(null);
   const client = new Paho.Client("broker.hivemq.com", Number(8000), "wss");
   client.onMessageArrived = onMessageArrived;
